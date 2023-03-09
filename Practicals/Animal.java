@@ -1,35 +1,59 @@
 package corejava;
-
-class Animal 
-{
-//This is a parent class
-//method
-	public void display()
+//Adding abstract keyword before Class Name
+public abstract class Animal 
+{	//Creating variable age
+	protected int age;
+	
+	//Creating parameterized constructor
+	public Animal(int age) 
 	{
-		System.out.println("Inside parent class");
+	super();
+	this.age = age;
+	}
+	//Creating getter method
+	public int getAge() {
+		return age;
 	}
 }
-//Child Class
+//Creating a Class Dog which is a SubClass of Class Animal
 class Dog extends Animal
 {
-	public void sound()
-	{
-		System.out.println("Barks...");
+
+	public Dog(int age) {
+		super(age);	
 	}
+	//Create toString
+	@Override
+	public String toString() {
+		return "Dog [age=" + age + "]";
+	}	
 }
-class puppy extends Dog
+//Creating Class Cat which is a subClass of Class Animal
+class Cat extends Animal{
+	//Creating constructor
+	public Cat(int age) {
+		super(age);
+		
+	}
+	//Creating toString
+
+	@Override
+	public String toString() {
+		return "Cat [age=" + age + "]";
+	}
+	
+}
+//Creating main class
+class TestAnimal
 {
-	public void run()
+	public static void main(String[] agrs)
 	{
-		System.out.println("Runs by small steps....");
-	}
-}
-class Tester{
-	public static void main(String[] args)
-	{
-		puppy d=new puppy(); //Creating Object of Child class 
-		d.display();
-		d.sound();
-		d.run();	
+		//Creating Objects
+		Dog d=new Dog(3);
+		Cat c=new Cat(4);
+		//Printing the values
+		System.out.println(d.toString());
+		System.out.println(c.toString());
+		
 	}
 }
